@@ -1,0 +1,208 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Portada */
+.portada {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #b6cef1 0%, #a6c5f7 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 150px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+.descripcion {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.contacto-portada {
+    margin: 2rem 0;
+}
+
+.whatsapp, .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+}
+
+.redes-sociales a {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
+
+.web {
+    display: block;
+    margin: 1rem 0;
+    color: #555;
+}
+
+/*
+.btn-ver-productos {
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 2rem;
+}
+*/
+
+/* Contenedor de botones (flexbox) */
+.botones-portada {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre botones */
+    margin-top: 2rem;
+    flex-wrap: wrap; /* Para que se apilen en móviles */
+}
+
+/* Estilo base para botones */
+.btn-portada {
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 150px; /* Ancho mínimo para evitar deformación */
+}
+
+/* Botón de productos */
+.btn-productos {
+    background: #ff6b6b;
+    color: white;
+    border: 2px solid #ff6b6b;
+}
+
+.btn-productos:hover {
+    background: #e63946;
+    border-color: #e63946;
+}
+
+/* Botón de ofertas */
+.btn-ofertas {
+    background: #ffbe0b;
+    color: #333;
+    border: 2px solid #ffbe0b;
+}
+
+.btn-ofertas:hover {
+    background: #ff9e00;
+    border-color: #ff9e00;
+}
+
+/* Botón de contacto */
+.btn-contacto {
+    background: #4cf0d5;
+    color: white;
+    border: 2px solid #4cc9f0;
+}
+
+.btn-contacto:hover {
+    background: #3a86ff;
+    border-color: #3a86ff;
+}
+
+/* Responsive: Apilar botones en móviles */
+@media (max-width: 600px) {
+    .botones-portada {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .btn-portada {
+        width: 80%; /* Ocupar casi todo el ancho */
+    }
+}
+
+/* Página de Productos */
+.header-productos {
+    text-align: center;
+    padding: 1rem;
+    background: rgb(93, 199, 241);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ram {
+    text-align: center;
+    padding: 0.rem;
+    background: rgb(92, 121, 216);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lg {
+    text-align: center;
+    padding: 1.rem;
+    background: rgb(92, 121, 216);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+.productos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.producto {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+}
+
+.producto img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.precio {
+    font-weight: bold;
+    color: #e63946;
+    font-size: 1.2rem;
+}
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #84d3e7;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .productos-container {
+        grid-template-columns: 1fr;
+    }
+}
