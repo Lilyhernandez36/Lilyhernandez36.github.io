@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Reciclaje de Tarjetas Electrónicas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Sistema de Gestión de Reciclaje Metales</h1>
+            <nav>
+                <button class="nav-btn active" data-section="clientes">Clientes</button>
+                <button class="nav-btn" data-section="materiales">Ingreso de Materiales</button>
+                <button class="nav-btn" data-section="inventario">Inventario</button>
+                <button class="nav-btn" data-section="finanzas">Finanzas</button>
+                <button class="nav-btn" data-section="corte">Corte de Caja</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Sección de Clientes -->
+        <section id="clientes" class="section active">
+            <h2>Registro de Clientes</h2>
+            <div class="card">
+                <form id="cliente-form">
+                    <div class="form-group">
+                        <label for="cliente-nombre">Nombre:</label>
+                        <input type="text" id="cliente-nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cliente-telefono">Teléfono:</label>
+                        <input type="tel" id="cliente-telefono">
+                    </div>
+                  
+                    <button type="submit" class="success">Registrar Cliente</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h3>Clientes Registrados</h3>
+                <table id="tabla-clientes">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Teléfono</th>
+                            <th>Email</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los clientes se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección de Ingreso de Materiales -->
+        <section id="materiales" class="section">
+            <h2>Ingreso de Materiales</h2>
+            <div class="card">
+                <form id="material-form">
+                    <div class="form-group">
+                        <label for="material-cliente">Cliente:</label>
+                        <select id="material-cliente" required>
+                            <option value="">Seleccione un cliente</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="material-tipo">Tipo de Material:</label>
+                        <select id="material-tipo" required>
+                            <option value="">Seleccione un material</option>
+                            <!-- Las opciones se cargarán dinámicamente -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="material-cantidad">Cantidad:</label>
+                        <input type="number" id="material-cantidad" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="material-unidad">Unidad:</label>
+                        <select id="material-unidad" required>
+                            <option value="kilo">Kilo</option>
+                            <option value="pieza">Pieza</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="material-precio">Precio por Unidad:</label>
+                        <input type="number" id="material-precio" min="0" step="0.01" required>
+                    </div>
+                    <button type="submit" class="success">Registrar Material</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h3>Materiales Ingresados Hoy</h3>
+                <table id="tabla-materiales">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Cliente</th>
+                            <th>Material</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los materiales se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección de Inventario -->
+        <section id="inventario" class="section">
+            <h2>Inventario de Materiales</h2>
+            <div class="tabs">
+                <div class="tab active" data-tab="materiales">Materiales</div>
+                <div class="tab" data-tab="precios">Precios</div>
+            </div>
+            
+            <div class="tab-content active" id="materiales-tab">
+                <div class="card">
+                    <h3>Stock Actual</h3>
+                    <div id="lista-inventario">
+                        <!-- Los materiales del inventario se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="precios-tab">
+                <div class="card">
+                    <h3>Configuración de Precios</h3>
+                    <div id="lista-precios">
+                        <!-- Los precios se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Finanzas -->
+        <section id="finanzas" class="section">
+            <h2>Finanzas</h2>
+            <div class="stats">
+                <div class="stat-card">
+                    <h4>Inversión Inicial</h4>
+                    <p id="inversion-inicial">$2000.00</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Ingresos Totales</h4>
+                    <p id="ingresos-totales">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Gastos Totales</h4>
+                    <p id="gastos-totales">$0.00</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Balance Actual</h4>
+                    <p id="balance-actual">$0.00</p>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h3>Registro de Transacciones</h3>
+                <div class="form-group">
+                    <button id="btn-nueva-transaccion" class="success">Nueva Transacción</button>
+                </div>
+                <table id="tabla-transacciones">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Descripción</th>
+                            <th>Monto</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las transacciones se cargarán aquí dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Sección de Corte de Caja -->
+        <section id="corte" class="section">
+            <h2>Corte de Caja</h2>
+            <div class="card">
+                <h3>Generar Reporte</h3>
+                <div class="form-group">
+                    <label for="fecha-inicio">Fecha de Inicio:</label>
+                    <input type="date" id="fecha-inicio">
+                </div>
+                <div class="form-group">
+                    <label for="fecha-fin">Fecha de Fin:</label>
+                    <input type="date" id="fecha-fin">
+                </div>
+                <button id="btn-generar-reporte" class="success">Generar Reporte</button>
+                <button id="btn-descargar-excel" class="success">Descargar a Excel</button>
+            </div>
+            
+            <div class="card">
+                <h3>Resumen del Corte</h3>
+                <div id="resumen-corte">
+                    <!-- El resumen se cargará aquí dinámicamente -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal para editar precios -->
+    <div id="modal-precio" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Editar Precio</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-precio">
+                <input type="hidden" id="precio-id">
+                <div class="form-group">
+                    <label for="precio-material">Material:</label>
+                    <input type="text" id="precio-material" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="precio-kilo">Precio por Kilo:</label>
+                    <input type="number" id="precio-kilo" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio-pieza">Precio por Pieza:</label>
+                    <input type="number" id="precio-pieza" min="0" step="0.01" required>
+                </div>
+                <button type="submit" class="success">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para transacciones -->
+    <div id="modal-transaccion" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Nueva Transacción</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="form-transaccion">
+                <div class="form-group">
+                    <label for="transaccion-tipo">Tipo:</label>
+                    <select id="transaccion-tipo" required>
+                        <option value="ingreso">Ingreso</option>
+                        <option value="gasto">Gasto</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="transaccion-descripcion">Descripción:</label>
+                    <input type="text" id="transaccion-descripcion" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaccion-monto">Monto:</label>
+                    <input type="number" id="transaccion-monto" min="0" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="transaccion-fecha">Fecha:</label>
+                    <input type="date" id="transaccion-fecha" required>
+                </div>
+                <button type="submit" class="success">Registrar Transacción</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
