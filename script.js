@@ -15,9 +15,9 @@
             "bronce amarillo", "bronce rojo", "cable aluminio", 
             "aluminio blando", "radiador aluminio cobre", "rin g aluminio", 
             "rin ch aluminio", "rin aluminio moto", "aluminio macizo", 
-            "aluminio traste", "aluminio perfil c/ pintura", "aluminio perfil s/ pintura", "pedaceria aluminio perfil", "moneda nikel", "radiador bronce", "plomo blando", 
-            "plomo duro", "antimonio", "zinc", 
-            "perfil sucio"
+            "aluminio traste", "aluminio perfil c/ pintura", "aluminio perfil s/ pintura", 
+                "pedaceria aluminio perfil", "moneda nikel", "radiador bronce", "plomo blando", 
+            "plomo duro", "antimonio", "zinc", "perfil sucio chatarra"
         ];
 
         // Inicializar la aplicación
@@ -683,4 +683,5 @@
                 alerta.remove();
             }, 3000);
         }
+
     
